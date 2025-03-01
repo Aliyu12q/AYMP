@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Gallery</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Fullscreen Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 5px;
+        }
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>My Photo Gallery</h1>
+
+    <div class="gallery">
+        <!-- Replace with your images -->
+        <img src="IMG_9378.PNG" alt="Image 1" onclick="openModal(this)">
+        <img src="IMG_0041.JPG" alt="Image 2" onclick="openModal(this)">
+        <img src="IMG_1083.jpg" alt="Image 3" onclick="openModal(this)">
+        <img src="IMG_9382.PNG" alt="Image 4" onclick="openModal(this)">
+        <img src="IMG_9372.PNG" alt="Image 5" onclick="openModal(this)">
+        <img src="IMG_9371.PNG" alt="Image 6" onclick="openModal(this)">
+        <img src="IMG_9373.PNG" alt="Image 7" onclick="openModal(this)">
+        <img src="IMG_9110.PNG" alt="Image 8" onclick="openModal(this)">
+        <img src="IMG_9381.PNG" alt="Image 9" onclick="openModal(this)">
+        <img src="IMG_9384.PNG" alt="Image 9" onclick="openModal(this)">
+        <img src="IMG_9380.PNG" alt="Image 9" onclick="openModal(this)">
+        <img src="IMG_9383.PNG" alt="Image 9" onclick="openModal(this)">
+        
+        <!-- Add more images up to 30 -->
+    </div>
+<br><br>
+    <!-- Fullscreen Modal -->
+    <div class="modal" id="imageModal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img id="modalImg">
+    </div>
+
+    <script>
+        function openModal(img) {
+            document.getElementById("imageModal").style.display = "flex";
+            document.getElementById("modalImg").src = img.src;
+        }
+
+        function closeModal() {
+            document.getElementById("imageModal").style.display = "none";
+        }
+    </script>
+
+</body>
+</html>
