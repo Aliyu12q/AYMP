@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About me</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<body style="background-color: beige;">
+<ul>
+  <li><a href="Homepage.html">About</a></li>
+  <li><a href="picture.html">Picture</a></li>
+  <li><a href="contact.html">Contact</a></li>
+  <li style="float:right"><a class="active" href="AI.html">Ask Ai</a></li>
+</ul>
+<br>
+<h1>I'm a <span class="changing-text">Web Developer</span></h1>
+<br><br><br><br>
+    <center>
+<img src="IMG_9379.PNG" alt="Paris" width="400" height="300">
+    <h2>ABOUT</h2></center>
+    <p>My name is Aliyu Yunus Muhammad, I was born in kaduna state, within the kaduna north local goverment area.</p>
+    <p>I began my primary school at An-Nur international school before transferring to nigerian turkish international school kaduna(NTIC)primary. i graduated from primary school in 2016.</p>
+    <p>My secondary education took me on a varied path. I stated at Nigrian Turkish international college kaduna secondary, where i experienced boarding school life from jss1 to jss3. In jss3 i switched to dialogue computer school for a year which added a different perspective to my learning experience. </p>
+    <p>I then returned to NTIC kaduna and contued till my ss2 second term. Due to security issues i moved to NTIC Abuja for my third term. Finally, I transferred to NTIC kano, where I completed my ss3 and gradauted in the year 2022</p>
+    <hr>
+    <br><br>
+<center>
+    <a href="https://www.facebook.com/share/1ADuNXGGSN/?mibextid=wwXIfr" class="fa fa-facebook"></a>
+    <a href="#" class="fa fa-twitter"></a>
+    <a  href="https://www.instagram.com/_aleeyou._?igsh=MW9ib21oaGlicDJzNg%3D%3D&utm_source=qr" class="fa fa-instagram"></a>
+    </center>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
+<script>
+  const textArray = ["Web Developer", "Student", "Software Engineer", "Designer", "Freelancer"];
+  let index = 0;
+
+  function changeText() {
+      index = (index + 1) % textArray.length; // Loop through the array
+      document.querySelector(".changing-text").textContent = textArray[index];
+  }
+
+  setInterval(changeText, 2000); // Change text every 2 seconds
+</script>
+

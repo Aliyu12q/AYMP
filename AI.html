@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Voice Assistant</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        p {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>AI Voice Assistant</h1>
+    <button onclick="startListening()">🎤 Click to Speak</button>
+    <p id="response"></p>
+
+    <script>
+        function startListening() {
+            let recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+            recognition.lang = "en-US";
+
+            recognition.onstart = function () {
+                document.getElementById("response").textContent = "Listening...";
+            };
+
+            recognition.onresult = function (event) {
+                let transcript = event.results[0][0].transcript.toLowerCase();
+                document.getElementById("response").textContent = "You said: " + transcript;
+                
+                let reply = getResponse(transcript);
+                speak(reply);
+            };
+
+            recognition.start();
+        }
+
+        function getResponse(input) {
+            let responses = {
+                "hello": "Hi, how are you doing?",
+                "how are you": "I'm fine.",
+                "aliyu yunus": "Aliyu Yunus Muhammad is the Developer of this website and it is personal.",
+                "aliyu": "Aliyu Yunus Muhammad is the Developer of this website and it is personal.",
+                "who is aliyu": "Aliyu Yunus Muhammad is the Developer of this website and it is personal.",
+                "girlfriend": "Fatima Zarah Bello is Aliyu's girlfriend.",
+                "who is aliyu girlfriend": "Fatima Zarah Bello is Aliyu's girlfriend.",
+                "who is your girlfriend": "Fatima Zarah Bello is Aliyu's girlfriend.",
+                "fatima": "She is Aliyu's girlfriend and he loves her so much.",
+                "fatima zarah bello": "She is Aliyu's girlfriend and he loves her so much.",
+                "zarah": "She is Aliyu's girlfriend and he loves her so much.",
+                "poyoyo": "She is Aliyu's girlfriend and he loves her so much.",
+                "habibti": "She is Aliyu's girlfriend and he loves her so much.",
+                "owner": "The owner of the website is Aliyu Yunus Muhammad.",
+                "who is the owner": "The owner of the website is Aliyu Yunus Muhammad.",
+                "who are you": "The owner of the website is Aliyu Yunus Muhammad."
+            };
+
+            return responses[input] || "Sorry, I didn't understand that.";
+        }
+
+        function speak(text) {
+            let speech = new SpeechSynthesisUtterance();
+            speech.text = text;
+            speech.lang = "en-US";
+            speech.volume = 1;
+            speech.rate = 1;
+            speech.pitch = 1;
+            window.speechSynthesis.speak(speech);
+
+            document.getElementById("response").textContent = "AI: " + text;
+        }
+    </script>
+
+</body>
+</html>

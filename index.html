@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+    #access-code-form {
+        width: 200px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    #access-code-input {
+        width: 95%;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+    #submit-button {
+        width: 100%;
+        padding: 10px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    #error-message {
+        color: red;
+        display: none;
+    }
+</style>
+</head>
+<body>
+<div id="access-code-form">
+    <h2>Enter Code</h2>
+    <input type="text" id="access-code-input" placeholder="Enter code...">
+    <p id="error-message">Invalid code. Please try again.</p>
+    <button id="submit-button">Proceed</button>
+</div>
+
+<script>
+    document.getElementById("submit-button").addEventListener("click", function() {
+        var enteredCode = document.getElementById("access-code-input").value;
+        var validCodes = ["Aym123", "Poyoyo", "Ali12", "12987", "asd", "no1"];
+
+        if (validCodes.includes(enteredCode)) {
+            // Redirect to the next page or perform the desired action here
+            window.location.href = "welcomepage.html";
+        } else {
+            // Display an error message
+            document.getElementById("error-message").style.display = "block";
+        }
+    });
+</script>
+</body>
+</html>
